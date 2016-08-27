@@ -26,9 +26,10 @@ Perfect size (1Mb), length (12s), noisy background, visible spectral peaks with 
 
 ## Credits
 
-Thanks to [freesound.org](https://www.freesound.org) — awesome collection of opensource sounds.
+Thanks to **[@mikolalysenko](https://github.com/mikolalysenko)** for API insight and [freesound.org](https://www.freesound.org) for awesome collection of opensource sounds.
 
 ## Reference
 
 * [Lenna](https://en.wikipedia.org/wiki/Lenna) in wiki.
 * [Lena.mp3](https://www.freesound.org/people/heshamwhite/sounds/246148/) original.
+* [Lena](https://github.com/mikolalysenko/lena) test image.
