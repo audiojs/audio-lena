@@ -2,7 +2,7 @@
   "name": "audio-lena",
   "version": "1.0.0",
   "description": "The Lena test audio",
-  "main": "index.js",
+  "main": "wav.js",
   "dependencies": {
     "btoa": "^1.1.2"
   },
