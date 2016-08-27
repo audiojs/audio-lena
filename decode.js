@@ -1,0 +1,18 @@
+/**
+ * @module audio-lena/decode
+ *
+ * Convert from base64 to arraybuffer in
+ */
+var btoa = require('btoa');
+
+if (!(btoa instanceof Function)) btoa = window.btoa;
+
+module.exports = function decode (str) {
+	var binary = atob(str);
+	var len = binary.length;
+	var bytes = new Uint8Array(len);
+	for (var i = 0; i < len; i++)        {
+		bytes[i] = binary.charCodeAt(i);
+	}
+	return bytes.buffer;
+}

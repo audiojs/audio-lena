@@ -1,0 +1,37 @@
+{
+  "name": "audio-lena",
+  "version": "1.0.0",
+  "description": "The Lena test audio",
+  "main": "index.js",
+  "dependencies": {
+    "btoa": "^1.1.2"
+  },
+  "browser": {
+    "btoa": false
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "test:browser": "budo test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audiojs/audio-lena.git"
+  },
+  "keywords": [
+    "audio",
+    "lena",
+    "dsp",
+    "processing",
+    "sound",
+    "test",
+    "mock",
+    "audiojs"
+  ],
+  "author": "ΔY <dfcreative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/audiojs/audio-lena/issues"
+  },
+  "homepage": "https://github.com/audiojs/audio-lena#readme"
+}
