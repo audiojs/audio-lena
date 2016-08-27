@@ -1,6 +1,6 @@
 # audio-lena [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav with the record.
+The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav of the record.
 
 ## Usage
 
@@ -26,9 +26,9 @@ Perfect size (1Mb), length (12s), noisy background, visible spectral peaks with 
 
 ## Credits
 
-[freesound.org](https://www.freesound.org) — awesome collection of opensource sounds.
+Thanks to [freesound.org](https://www.freesound.org) — awesome collection of opensource sounds.
 
 ## Reference
 
 * [Lenna](https://en.wikipedia.org/wiki/Lenna) in wiki.
-* [Lena.mp3](https://www.freesound.org/people/heshamwhite/sounds/246148/) original Lena.mp3.
+* [Lena.mp3](https://www.freesound.org/people/heshamwhite/sounds/246148/) original.
