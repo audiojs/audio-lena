@@ -1,6 +1,6 @@
 {
   "name": "audio-lena",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Lena test audio",
   "main": "wav.js",
   "dependencies": {
@@ -29,10 +29,12 @@
     "audiojs"
   ],
   "author": "ΔY <dfcreative@gmail.com>",
-  "contributors": [{
-    "name": "Jamen Marz",
-    "email": "jamenmarz@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Jamen Marz",
+      "email": "jamenmarz@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/audiojs/audio-lena/issues"
