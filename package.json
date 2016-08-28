@@ -4,7 +4,7 @@
   "description": "The Lena test audio",
   "main": "wav.js",
   "dependencies": {
-    "btoa": "^1.1.2"
+    "atob": "^2.0.3"
   },
   "browser": {
     "btoa": false
@@ -29,6 +29,10 @@
     "audiojs"
   ],
   "author": "ΔY <dfcreative@gmail.com>",
+  "contributors": [{
+    "name": "Jamen Marz",
+    "email": "jamenmarz@gmail.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/audiojs/audio-lena/issues"
