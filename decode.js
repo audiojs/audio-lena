@@ -3,9 +3,9 @@
  *
  * Convert from base64 to arraybuffer in
  */
-var btoa = require('btoa');
+var atob = require('atob');
 
-if (!(btoa instanceof Function)) btoa = window.btoa;
+if (!(atob instanceof Function)) atob = window.atob;
 
 module.exports = function decode (str) {
 	var binary = atob(str);
