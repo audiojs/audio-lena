@@ -3,6 +3,7 @@
  *
  * @module  audio-lena
  */
+'use strict';
 
 const AudioBuffer = require('audio-buffer');
 

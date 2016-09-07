@@ -1,4 +1,4 @@
-# audio-lena [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+# audio-lena [![Build Status](https://travis-ci.org/audiojs/audio-lena.svg?branch=master)](https://travis-ci.org/audiojs/audio-lena) [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
 The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav of the record.
 
