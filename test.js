@@ -4,7 +4,7 @@
  * @module  audio-lena
  */
 
-const context = new AudioContext();
+const AudioBuffer = require('audio-buffer');
 
 
 //build script
@@ -32,14 +32,27 @@ const context = new AudioContext();
 
 
 //test sound
-let lena = require('./');
+// let lena = require('./');
 
-context.decodeAudioData(lena, (buffer) => {
+// context.decodeAudioData(lena, (buffer) => {
+// 	source = context.createBufferSource();
+// 	source.buffer = buffer;
+// 	source.connect(context.destination);
+// 	source.loop = true;
+
+// 	source.start();
+// });
+
+if (typeof document !== 'undefined') {
+	const context = new AudioContext();
+
+	let lenaBuf = require('./buffer');
+	let buffer = AudioBuffer(1, lenaBuf);
+
 	source = context.createBufferSource();
 	source.buffer = buffer;
 	source.connect(context.destination);
-	source.loop = true;
+	source.loop = false;
 
 	source.start();
-});
-
+}

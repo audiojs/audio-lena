@@ -2,17 +2,21 @@
   "name": "audio-lena",
   "version": "1.0.1",
   "description": "The Lena test audio",
-  "main": "wav.js",
   "dependencies": {
     "atob": "^2.0.3"
   },
   "browser": {
     "btoa": false
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "audio-buffer": "^2.4.5",
+    "eslint": "^3.4.0"
+  },
   "scripts": {
     "test": "node test.js",
-    "test:browser": "budo test.js"
+    "test:browser": "budo test.js",
+    "lint": "eslint *.js --ignore-pattern test*",
+    "preversion": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",

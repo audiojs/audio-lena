@@ -3,6 +3,7 @@
  *
  * Convert from base64 to arraybuffer in
  */
+'use strict';
 var atob = require('atob');
 
 if (!(atob instanceof Function)) atob = window.atob;

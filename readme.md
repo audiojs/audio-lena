@@ -7,6 +7,7 @@ The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test aud
 [![npm install audio-lena](https://nodei.co/npm/audio-lena.png?mini=true)](https://npmjs.org/package/audio-lena/)
 
 ```js
+//wav file
 const lena = require('audio-lena/wav');
 const context = require('audio-context');
 
@@ -18,11 +19,22 @@ context.decodeAudioData(lena, (buffer) => {
 
 	source.start();
 });
+
+//array buffer
+const buf = require('audio-lena/buffer');
+const AudioBuffer = require('audio-buffer');
+
+//note mono channel indicator    ↓
+let lenaBuffer = new AudioBuffer(1, buf);
+
+
+//also available mp3
+const mp3 = require('audio-lena/mp3');
 ```
 
 ## Why
 
-Perfect size (1Mb), length (12s), noisy background, visible spectral peaks with harmonics, pitch variation. Good for sound recovery, filtering, decoding, encoding etc.
+Perfect size (1Mb), length (12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
 
 ## Credits
 
