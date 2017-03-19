@@ -50,7 +50,7 @@ if (typeof document !== 'undefined') {
 	let lenaBuf = require('./buffer');
 	let buffer = AudioBuffer(1, lenaBuf);
 
-	source = context.createBufferSource();
+	let source = context.createBufferSource();
 	source.buffer = buffer;
 	source.connect(context.destination);
 	source.loop = false;
