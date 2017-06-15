@@ -1,6 +1,4 @@
-# audio-lena [![Build Status](https://travis-ci.org/audiojs/audio-lena.svg?branch=master)](https://travis-ci.org/audiojs/audio-lena) [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/audiojs/audio-lena.svg)](https://greenkeeper.io/)
+# audio-lena [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/audiojs/audio-lena.svg)](https://travis-ci.org/audiojs/audio-lena) [![Greenkeeper badge](https://badges.greenkeeper.io/audiojs/audio-lena.svg)](https://greenkeeper.io/)
 
 The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav of the record.
 
@@ -36,7 +34,16 @@ const mp3 = require('audio-lena/mp3');
 
 ## Why
 
-Perfect size (1Mb), length (12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
+Appropriate for testing size (1Mb), length (~12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
+
+| Parameter | Value |
+|---|---|
+| `samplesCount` | `541184` |
+| `duration` | `12.271746031746032s` |
+| `numberOfChannels` | `1` |
+| `sampleRate` | `44100` |
+| `size` | `1.03Mb` |
+| `bitRate` | `705kbps` |
 
 ## Credits
 

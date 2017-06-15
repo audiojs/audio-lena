@@ -6,4 +6,5 @@
 module.exports = require('./wav')
 module.exports.wav = require('./wav')
 module.exports.mp3 = require('./mp3')
-module.exports.raw = require('./buffer')
+module.exports.raw =
+module.exports.buffer = require('./buffer')
