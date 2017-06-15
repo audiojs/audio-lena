@@ -7,11 +7,11 @@ The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test aud
 [![npm install audio-lena](https://nodei.co/npm/audio-lena.png?mini=true)](https://npmjs.org/package/audio-lena/)
 
 ```js
-//wav file
-const lena = require('audio-lena/wav');
-const context = require('audio-context');
+//mp3 arrayBuffer
+const lenaBuffer = require('audio-lena/mp3');
+const context = require('audio-context')();
 
-context.decodeAudioData(lena, (buffer) => {
+context.decodeAudioData(lenaBuffer, (buffer) => {
 	source = context.createBufferSource();
 	source.buffer = buffer;
 	source.connect(context.destination);
@@ -20,16 +20,20 @@ context.decodeAudioData(lena, (buffer) => {
 	source.start();
 });
 
-//array buffer
+//decoded arrayBuffer with float32 samples data
 const buf = require('audio-lena/buffer');
-const AudioBuffer = require('audio-buffer');
 
-//note mono channel indicator    ↓
-let lenaBuffer = new AudioBuffer(1, buf);
+let lenaBuf = require('./buffer');
+let lenaSamples = new Float32Array(lenaBuf)
+let buffer = context.createBuffer(1, lenaSamples.length, 44100)
+buffer.getChannelData(0).set(lenaSamples)
 
+let source = context.createBufferSource();
+source.buffer = buffer;
+source.connect(context.destination);
+source.loop = false;
 
-//also available mp3
-const mp3 = require('audio-lena/mp3');
+source.start();
 ```
 
 ## Why

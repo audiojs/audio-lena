@@ -5,8 +5,6 @@
  */
 'use strict';
 
-const AudioBuffer = require('audio-buffer');
-
 
 //build script
 // var request = new XMLHttpRequest();
@@ -48,8 +46,9 @@ if (typeof document !== 'undefined') {
 	const context = new AudioContext();
 
 	let lenaBuf = require('./buffer');
-	let buffer = AudioBuffer(1, lenaBuf);
-
+	let lenaSamples = new Float32Array(lenaBuf)
+	let buffer = context.createBuffer(1, lenaSamples.length, 44100)
+	buffer.getChannelData(0).set(lenaSamples)
 	let source = context.createBufferSource();
 	source.buffer = buffer;
 	source.connect(context.destination);
