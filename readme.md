@@ -76,7 +76,7 @@ audio.src = mp3
 | `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data. |
 | `audio-lena/wav-datauri` | Data-URI string with encoded wav data. |
 
-### let result = lena({format: 'mp3', type: 'float', channels}?)
+### let result = lena({format: 'mp3', type: 'float'}?)
 
 Get lena record with defined `format` and `type`.
 
