@@ -45,7 +45,8 @@
 if (typeof document !== 'undefined') {
 	const context = new AudioContext();
 
-	let lenaBuf = require('./buffer');
+	//open raw samples data
+	let lenaBuf = require('./raw');
 	let lenaSamples = new Float32Array(lenaBuf)
 	let buffer = context.createBuffer(1, lenaSamples.length, 44100)
 	buffer.getChannelData(0).set(lenaSamples)
@@ -55,4 +56,17 @@ if (typeof document !== 'undefined') {
 	source.loop = false;
 
 	source.start();
+	setTimeout(() => source.stop(), 500)
+
+
+	//mp3-datauri
+	var mp3 = require('./')({type: 'mp3', format: 'data-uri'})
+
+	var audio = new Audio()
+	audio.addEventListener('canplay', () => {
+		console.log("Can play!")
+		audio.play()
+		setTimeout(() => audio.pause(), 500)
+	})
+	audio.src = mp3
 }

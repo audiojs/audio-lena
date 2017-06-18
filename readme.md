@@ -2,6 +2,9 @@
 
 The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav of the record.
 
+Appropriate for testing size (1Mb), length (~12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
+
+
 ## Usage
 
 [![npm install audio-lena](https://nodei.co/npm/audio-lena.png?mini=true)](https://npmjs.org/package/audio-lena/)
@@ -18,12 +21,12 @@ context.decodeAudioData(lenaBuffer, (buffer) => {
 	source.loop = true;
 
 	source.start();
-});
+})
+
 
 //decoded arrayBuffer with float32 samples data
-const buf = require('audio-lena/buffer');
+const buf = require('audio-lena/raw');
 
-let lenaBuf = require('./buffer');
 let lenaSamples = new Float32Array(lenaBuf)
 let buffer = context.createBuffer(1, lenaSamples.length, 44100)
 buffer.getChannelData(0).set(lenaSamples)
@@ -34,11 +37,19 @@ source.connect(context.destination);
 source.loop = false;
 
 source.start();
+
+
+//data-uri
+const mp3 = require('audio-lena/mp3-datauri')
+
+let audio = new Audio()
+audio.addEventListener('canplay', () => {
+	audio.play()
+})
+audio.src = mp3
 ```
 
-## Why
-
-Appropriate for testing size (1Mb), length (~12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
+## Parameters
 
 | Parameter | Value |
 |---|---|
@@ -49,6 +60,39 @@ Appropriate for testing size (1Mb), length (~12s), noisy background, visible spe
 | `size` | `1.03Mb` |
 | `bitRate` | `705kbps` |
 
+## API
+
+### let lena = require('audio-lena')
+
+| Entry | Meaning |
+|---|---|
+| `audio-lena` | Lena record constructor |
+| `audio-lena/raw` | _ArrayBuffer_ with float32 samples |
+| `audio-lena/mp3` | _ArrayBuffer_ with encoded mp3 data |
+| `audio-lena/wav` | _ArrayBuffer_ with encoded wav data |
+| `audio-lena/raw-base64` | Base64 string with encoded float32 samples |
+| `audio-lena/mp3-base64` | Base64 string with encoded mp3 data |
+| `audio-lena/wav-base64` | Base64 string with encoded wav data |
+| `audio-lena/raw-datauri` | Data-URI string with encoded float32 samples |
+| `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data |
+| `audio-lena/wav-datauri` | Data-URI string with encoded wav data |
+
+### lena({format: 'mp3', type: 'float', channels}?)
+
+Get lena record with defined `format` and `type`.
+
+| Format | Meaning |
+| `'mp3'` | MP3-encoded data |
+| `'wav'` | Wav-encoded data |
+| `'raw'` | Raw float samples |
+
+| Type | Meaning |
+|---|---|
+| `'buffer'` | _ArrayBuffer_ with data |
+| `'base64'` | Base64-encoded string |
+| `'data-uri'` | Data-uti string |
+
+
 ## Credits
 
 Thanks to **[@mikolalysenko](https://github.com/mikolalysenko)** for API insight and [freesound.org](https://www.freesound.org) for awesome collection of opensource sounds.
@@ -58,3 +102,7 @@ Thanks to **[@mikolalysenko](https://github.com/mikolalysenko)** for API insight
 * [Lenna](https://en.wikipedia.org/wiki/Lenna) in wiki.
 * [Lena.mp3](https://www.freesound.org/people/heshamwhite/sounds/246148/) original.
 * [Lena](https://github.com/mikolalysenko/lena) test image.
+
+## Related
+
+* [slient-mp3-datauri](https://github.com/Jam3/silent-mp3-datauri)
