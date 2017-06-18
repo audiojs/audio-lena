@@ -76,21 +76,21 @@ audio.src = mp3
 | `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data. |
 | `audio-lena/wav-datauri` | Data-URI string with encoded wav data. |
 
-### lena({format: 'mp3', type: 'float', channels}?)
+### let result = lena({format: 'mp3', type: 'float', channels}?)
 
 Get lena record with defined `format` and `type`.
 
 | Format | Meaning |
 |---|---|
-| `'mp3'` | MP3-encoded data |
-| `'wav'` | Wav-encoded data |
-| `'raw'` | Raw float samples |
+| `'mp3'` | MP3-encoded data. |
+| `'wav'` | Wav-encoded data. |
+| `'raw'` | Raw float samples. |
 
 | Type | Meaning |
 |---|---|
-| `'buffer'` | _ArrayBuffer_ with data |
-| `'base64'` | Base64-encoded string |
-| `'data-uri'` | Data-uti string |
+| `'buffer'` | _ArrayBuffer_ with data. |
+| `'base64'` | Base64-encoded string. |
+| `'data-uri'` | Data-uri string. |
 
 
 ## Credits
