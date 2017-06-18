@@ -10,7 +10,8 @@ Appropriate for testing size (1Mb), length (~12s), noisy background, visible spe
 | `duration` | `12.271746031746032s` |
 | `numberOfChannels` | `1` |
 | `sampleRate` | `44100` |
-| `size` | `1.03Mb` |
+| `wav size` | `1.03 Mb` |
+| `mp3 size` | `192.8 Kb` |
 | `bitRate` | `705kbps` |
 
 ## Usage
