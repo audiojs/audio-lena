@@ -13,7 +13,7 @@ function lena (options) {
 
 	if (type === 'buffer') type = ''
 
-	return require(format + '-' + type.toLowerCase())
+	return require('./' + format + '-' + type.toLowerCase())
 }
 
 

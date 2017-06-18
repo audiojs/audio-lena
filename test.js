@@ -60,7 +60,7 @@ if (typeof document !== 'undefined') {
 
 
 	//mp3-datauri
-	var mp3 = require('./')({type: 'mp3', format: 'data-uri'})
+	var mp3 = require('./')({format: 'mp3', type: 'data-uri'})
 
 	var audio = new Audio()
 	audio.addEventListener('canplay', () => {
