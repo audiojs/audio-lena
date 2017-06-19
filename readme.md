@@ -75,14 +75,17 @@ audio.src = mp3
 | `audio-lena/mp3` | _ArrayBuffer_ with encoded mp3 data. |
 | `audio-lena/wav` | _ArrayBuffer_ with encoded wav data. |
 | `audio-lena/ogg` | _ArrayBuffer_ with encoded ogg data. |
+| `audio-lena/flac` | _ArrayBuffer_ with encoded flac data. |
 | `audio-lena/raw-base64` | Base64 string with encoded float32 samples. |
 | `audio-lena/mp3-base64` | Base64 string with encoded mp3 data. |
 | `audio-lena/wav-base64` | Base64 string with encoded wav data. |
 | `audio-lena/ogg-base64` | Base64 string with encoded ogg data. |
+| `audio-lena/flac-base64` | Base64 string with encoded flac data. |
 | `audio-lena/raw-datauri` | Data-URI string with encoded float32 samples. |
 | `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data. |
 | `audio-lena/wav-datauri` | Data-URI string with encoded wav data. |
 | `audio-lena/ogg-datauri` | Data-URI string with encoded ogg data. |
+| `audio-lena/flac-datauri` | Data-URI string with encoded flac data. |
 
 ### let result = lena({format: 'mp3', type: 'float'}?)
 
@@ -91,8 +94,10 @@ Get lena record with defined `format` and `type`.
 | Format | Meaning |
 |---|---|
 | `'mp3'` | MP3-encoded data. |
-| `'wav'` | Wav-encoded data. |
-| `'raw'` | Raw float samples. |
+| `'wav'` | WAV-encoded data. |
+| `'raw'` | Raw float32 samples. |
+| `'ogg'` | OGG-encoded samples. |
+| `'flac'` | FLAC-encoded samples. |
 
 | Type | Meaning |
 |---|---|
