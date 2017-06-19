@@ -7,7 +7,7 @@ Appropriate for testing size (1Mb), length (~12s), noisy background, visible spe
 | Parameter | Value |
 |---|---|
 | `samplesCount` | `541184` |
-| `duration` | `12.271746031746032s` |
+| `duration` | `12.27s` |
 | `numberOfChannels` | `1` |
 | `sampleRate` | `44100` |
 | `wav size` | `1.03 Mb` |
@@ -55,13 +55,13 @@ source.start();
 
 ```js
 // Data-uri
-const mp3 = require('audio-lena/mp3-datauri')
+const ogg = require('audio-lena/ogg-datauri')
 
 let audio = new Audio()
 audio.addEventListener('canplay', () => {
 	audio.play()
 })
-audio.src = mp3
+audio.src = ogg
 ```
 
 ## API
