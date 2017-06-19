@@ -94,10 +94,6 @@ Get lena record with defined `format` and `type`.
 | `'data-uri'` | Data-uri string. |
 
 
-## Credits
-
-Thanks to **[@mikolalysenko](https://github.com/mikolalysenko)** for API insight and [freesound.org](https://www.freesound.org) for awesome collection of opensource sounds.
-
 ## Reference
 
 * [Lenna](https://en.wikipedia.org/wiki/Lenna) in wiki.
