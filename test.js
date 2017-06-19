@@ -59,8 +59,8 @@ if (typeof document !== 'undefined') {
 	setTimeout(() => source.stop(), 500)
 
 
-	//mp3-datauri
-	var mp3 = require('./')({format: 'mp3', type: 'data-uri'})
+	//ogg-datauri
+	var ogg = require('./')({format: 'ogg', type: 'data-uri'})
 
 	var audio = new Audio()
 	audio.addEventListener('canplay', () => {
@@ -68,5 +68,5 @@ if (typeof document !== 'undefined') {
 		audio.play()
 		setTimeout(() => audio.pause(), 500)
 	})
-	audio.src = mp3
+	audio.src = ogg
 }

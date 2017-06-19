@@ -13,6 +13,10 @@ Appropriate for testing size (1Mb), length (~12s), noisy background, visible spe
 | `wav size` | `1.03 Mb` |
 | `mp3 size` | `192.8 Kb` |
 | `bitRate` | `705kbps` |
+| `artist` | `Lena Stolze` |
+| `track title` | `Oh lad le` |
+| `album title` | `Das schreckliche Mädchen` |
+| `year` | `2014` |
 
 ## Usage
 
@@ -70,12 +74,15 @@ audio.src = mp3
 | `audio-lena/raw` | _ArrayBuffer_ with float32 samples. |
 | `audio-lena/mp3` | _ArrayBuffer_ with encoded mp3 data. |
 | `audio-lena/wav` | _ArrayBuffer_ with encoded wav data. |
+| `audio-lena/ogg` | _ArrayBuffer_ with encoded ogg data. |
 | `audio-lena/raw-base64` | Base64 string with encoded float32 samples. |
 | `audio-lena/mp3-base64` | Base64 string with encoded mp3 data. |
 | `audio-lena/wav-base64` | Base64 string with encoded wav data. |
+| `audio-lena/ogg-base64` | Base64 string with encoded ogg data. |
 | `audio-lena/raw-datauri` | Data-URI string with encoded float32 samples. |
 | `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data. |
 | `audio-lena/wav-datauri` | Data-URI string with encoded wav data. |
+| `audio-lena/ogg-datauri` | Data-URI string with encoded ogg data. |
 
 ### let result = lena({format: 'mp3', type: 'float'}?)
 
