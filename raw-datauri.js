@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = 'data:audio/mpeg;base64,' + require('./raw-base64') + '';
+module.exports = 'data:application/octet-stream;base64,' + require('./raw-base64') + '';

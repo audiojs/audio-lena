@@ -16,6 +16,10 @@ function lena (options) {
 	return require('./' + format + '-' + type.toLowerCase())
 }
 
+lena.duration = 12.27
+lena.samplesCount = 541184
+lena.channels = lena.numberOfChannels = 1
+lena.sampleRate = 44100
 
 lena.wav = require('./wav')
 lena.mp3 = require('./mp3')

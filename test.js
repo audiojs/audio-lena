@@ -69,4 +69,9 @@ if (typeof document !== 'undefined') {
 		setTimeout(() => audio.pause(), 500)
 	})
 	audio.src = ogg
+
+
+
+	//raw-datauri is not audio
+	// var raw = require('./raw-datauri')
 }
