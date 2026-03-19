@@ -1,8 +1,8 @@
-# audio-lena [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/audiojs/audio-lena.svg)](https://travis-ci.org/audiojs/audio-lena)
+# audio-lena [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](http://github.com/badges/stability-badges)
 
-The [Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio. Returns _ArrayBuffer_ with mp3 or wav of the record.
+[Lena](https://www.freesound.org/people/heshamwhite/sounds/246148/) test audio fixture for audio decoders/encoders. The audio equivalent of the [Lena test image](https://en.wikipedia.org/wiki/Lenna).
 
-Appropriate for testing size (1Mb), length (~12s), noisy background, visible spectral peaks with harmonics, pitch variation, mono (not default number of channels). Good for sound recovery, sfx, filtering, decoding, encoding etc.
+Mono, 44100 Hz, ~12s. Noisy background, visible spectral peaks with harmonics, pitch variation. Good for codec testing, decoding, encoding, DSP, filtering.
 
 | Parameter | Value |
 |---|---|
@@ -10,101 +10,137 @@ Appropriate for testing size (1Mb), length (~12s), noisy background, visible spe
 | `duration` | `12.27s` |
 | `numberOfChannels` | `1` |
 | `sampleRate` | `44100` |
-| `wav size` | `1.03 Mb` |
-| `mp3 size` | `192.8 Kb` |
-| `bitRate` | `705kbps` |
 | `artist` | `Lena Stolze` |
-| `track title` | `Oh lad le` |
-| `album title` | `Das schreckliche Mädchen` |
+| `track` | `Oh lad le` |
+| `album` | `Das schreckliche Mädchen` |
 | `year` | `2014` |
+
+### Formats
+
+| Format | Size | MIME |
+|---|---|---|
+| wav | 1057 KB | `audio/wav` |
+| mp3 | 193 KB | `audio/mpeg` |
+| ogg | 109 KB | `audio/ogg` |
+| flac | 473 KB | `audio/flac` |
+| opus | 111 KB | `audio/opus` |
+| aac | 108 KB | `audio/aac` |
+| m4a | 243 KB | `audio/mp4` |
+| aiff | 1059 KB | `audio/aiff` |
+| webm | 161 KB | `audio/webm` |
+| caf | 1058 KB | `audio/x-caf` |
+| raw | 2114 KB | float32 samples |
 
 ## Usage
 
-[![npm install audio-lena](https://nodei.co/npm/audio-lena.png?mini=true)](https://npmjs.org/package/audio-lena/)
-
-```js
-// MP3 arrayBuffer
-const lenaBuffer = require('audio-lena/mp3');
-const context = require('audio-context')();
-
-context.decodeAudioData(lenaBuffer, (buffer) => {
-	source = context.createBufferSource();
-	source.buffer = buffer;
-	source.connect(context.destination);
-	source.loop = true;
-
-	source.start();
-})
+```
+npm i audio-lena
 ```
 
 ```js
-// Decoded arrayBuffer with float32 samples data
-const buf = require('audio-lena/raw');
+// ArrayBuffer with encoded audio
+import wav from 'audio-lena/wav'
+import mp3 from 'audio-lena/mp3'
+import flac from 'audio-lena/flac'
 
-let lenaSamples = new Float32Array(lenaBuf)
-let buffer = context.createBuffer(1, lenaSamples.length, 44100)
-buffer.getChannelData(0).set(lenaSamples)
+// Base64 string
+import mp3Base64 from 'audio-lena/mp3-base64'
 
-let source = context.createBufferSource();
-source.buffer = buffer;
-source.connect(context.destination);
-source.loop = false;
+// Data URI
+import oggDatauri from 'audio-lena/ogg-datauri'
+let audio = new Audio(oggDatauri)
 
-source.start();
-```
+// Raw float32 samples
+import raw from 'audio-lena/raw'
+let samples = new Float32Array(raw)
 
-```js
-// Data-uri
-const ogg = require('audio-lena/ogg-datauri')
+// File URL (works in Node and browser)
+import lena from 'audio-lena'
+let url = lena.url('flac')
 
-let audio = new Audio()
-audio.addEventListener('canplay', () => {
-	audio.play()
-})
-audio.src = ogg
+// Node: file path
+import { fileURLToPath } from 'node:url'
+let path = fileURLToPath(lena.url('flac'))
 ```
 
 ## API
 
-### let lena = require('audio-lena')
+### `import lena from 'audio-lena'`
 
-| Entry | Meaning |
+Metadata and helpers.
+
+| Property | Value |
 |---|---|
-| `audio-lena` | Lena record constructor below. |
-| `audio-lena/raw` | _ArrayBuffer_ with float32 samples. |
-| `audio-lena/mp3` | _ArrayBuffer_ with encoded mp3 data. |
-| `audio-lena/wav` | _ArrayBuffer_ with encoded wav data. |
-| `audio-lena/ogg` | _ArrayBuffer_ with encoded ogg data. |
-| `audio-lena/flac` | _ArrayBuffer_ with encoded flac data. |
-| `audio-lena/raw-base64` | Base64 string with encoded float32 samples. |
-| `audio-lena/mp3-base64` | Base64 string with encoded mp3 data. |
-| `audio-lena/wav-base64` | Base64 string with encoded wav data. |
-| `audio-lena/ogg-base64` | Base64 string with encoded ogg data. |
-| `audio-lena/flac-base64` | Base64 string with encoded flac data. |
-| `audio-lena/raw-datauri` | Data-URI string with encoded float32 samples. |
-| `audio-lena/mp3-datauri` | Data-URI string with encoded mp3 data. |
-| `audio-lena/wav-datauri` | Data-URI string with encoded wav data. |
-| `audio-lena/ogg-datauri` | Data-URI string with encoded ogg data. |
-| `audio-lena/flac-datauri` | Data-URI string with encoded flac data. |
+| `lena.duration` | `12.27` |
+| `lena.samplesCount` | `541184` |
+| `lena.channels` | `1` |
+| `lena.numberOfChannels` | `1` |
+| `lena.sampleRate` | `44100` |
+| `lena.formats` | `['wav', 'mp3', 'ogg', ...]` |
+| `lena.url(format)` | `URL` to fixture file |
 
-### let result = lena({format: 'mp3', type: 'float'}?)
+### `import buf from 'audio-lena/<format>'`
 
-Get lena record with defined `format` and `type`.
+Returns `ArrayBuffer` with encoded audio data.
 
-| Format | Meaning |
+Formats: `wav`, `mp3`, `ogg`, `flac`, `opus`, `aac`, `m4a`, `aiff`, `webm`, `caf`, `raw`.
+
+### `import b64 from 'audio-lena/<format>-base64'`
+
+Returns base64-encoded string.
+
+### `import uri from 'audio-lena/<format>-datauri'`
+
+Returns data-URI string (`data:<mime>;base64,...`).
+
+## Extra fixtures
+
+Additional encoding variants are included for decoder compatibility testing. No JS modules — access via file path.
+
+**Root variants** (encoded with ffmpeg/sox):
+
+| File | Encoding |
 |---|---|
-| `'mp3'` | MP3-encoded data. |
-| `'wav'` | WAV-encoded data. |
-| `'raw'` | Raw float32 samples. |
-| `'ogg'` | OGG-encoded samples. |
-| `'flac'` | FLAC-encoded samples. |
+| `lena-24.aiff` | AIFF 24-bit PCM |
+| `lena-32.aiff` | AIFF 32-bit PCM |
+| `lena-ulaw.aiff` | AIFF µ-law |
+| `lena-alaw.aiff` | AIFF A-law |
+| `lena-alaw.caf` | CAF A-law |
+| `lena-f32.caf` | CAF 32-bit float |
+| `lena-vorbis.webm` | WebM Vorbis |
 
-| Type | Meaning |
+**`audacity/`** (exported from Audacity):
+
+| File | Encoding |
 |---|---|
-| `'buffer'` | _ArrayBuffer_ with data. |
-| `'base64'` | Base64-encoded string. |
-| `'data-uri'` | Data-uri string. |
+| `lena-24.aiff` | AIFF 24-bit PCM |
+| `lena-24-dwvw.aiff` | AIFF 24-bit DWVW compressed |
+| `lena-32.wav` | WAV 32-bit float |
+| `lena-64.aiff` | AIFF 64-bit float |
+| `lena-u.aiff` | AIFF µ-law |
+| `lena-a.aiff` | AIFF A-law |
+| `lena-gsm.aiff` | AIFF GSM 6.10 compressed |
+| `lena-ima-adpcm.aiff` | AIFF IMA-ADPCM |
 
+**`logic/`** (exported from Logic Pro):
+
+| File | Encoding |
+|---|---|
+| `lena-24.aif` | AIFF 24-bit PCM |
+| `lena-24.wav` | WAV 24-bit PCM |
+| `lena-32.aif` | AIFF 32-bit float |
+
+Same audio encoded by different tools — useful for testing decoder tolerance across encoder implementations.
+
+## Generating
+
+To regenerate modules from binary fixtures:
+
+```
+node generate.js
+```
+
+To add a format, drop `lena.<ext>` into the root, add an entry to `generate.js`, and run it.
 
 ## Reference
 
@@ -114,4 +150,4 @@ Get lena record with defined `format` and `type`.
 
 ## Related
 
-* [slient-mp3-datauri](https://github.com/Jam3/silent-mp3-datauri)
+* [silent-mp3-datauri](https://github.com/Jam3/silent-mp3-datauri)

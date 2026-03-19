@@ -1,6 +1,3 @@
-/**
- * @module  lena/ogg.js
- */
-'use strict';
-
-module.exports = require('./decode')(require('./ogg-base64'));
+import base64 from './ogg-base64.js'
+import decode from './decode.js'
+export default decode(base64)

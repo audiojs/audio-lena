@@ -1,6 +1,3 @@
-/**
- * @module  lena/flac.js
- */
-'use strict';
-
-module.exports = require('./decode')(require('./flac-base64'));
+import base64 from './flac-base64.js'
+import decode from './decode.js'
+export default decode(base64)

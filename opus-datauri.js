@@ -1,3 +1,2 @@
-'use strict';
-
-module.exports = 'data:audio/opus;base64,' + require('./opus-base64') + '';
+import base64 from './opus-base64.js'
+export default 'data:audio/opus;base64,' + base64

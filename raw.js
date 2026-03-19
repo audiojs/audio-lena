@@ -1,5 +1,3 @@
-/**
- * @module  lena/wav.js
- */
-'use strict';
-module.exports = require('./decode')(require('./raw-base64'));
+import base64 from './raw-base64.js'
+import decode from './decode.js'
+export default decode(base64)

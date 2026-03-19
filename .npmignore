@@ -1,3 +1,12 @@
-*.mp3
-*.wav
+audacity/
+logic/
+lena-*
+lena.m4r
+lena.mp2
+lena.wma
 test.js
+generate.js
+.travis.yml
+.eslintrc.json
+.claude/
+node_modules/

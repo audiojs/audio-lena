@@ -1,6 +1,3 @@
-/**
- * @module  lena/opus.js
- */
-'use strict';
-
-module.exports = require('./decode')(require('./opus-base64'));
+import base64 from './opus-base64.js'
+import decode from './decode.js'
+export default decode(base64)
