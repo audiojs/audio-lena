@@ -1,6 +1,6 @@
 {
   "name": "audio-lena",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "description": "Lena test audio fixture for audio decoders/encoders",
   "type": "module",
   "types": "./index.d.ts",
