@@ -1,6 +1,6 @@
 {
   "name": "audio-lena",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Lena test audio fixture for audio decoders/encoders",
   "type": "module",
   "types": "./index.d.ts",
@@ -112,5 +112,6 @@
   "bugs": {
     "url": "https://github.com/audiojs/audio-lena/issues"
   },
-  "homepage": "https://github.com/audiojs/audio-lena#readme"
+  "homepage": "https://github.com/audiojs/audio-lena#readme",
+  "funding": "https://github.com/sponsors/audiojs"
 }
